@@ -11,6 +11,8 @@ class LineaTelefonica:
     
     # Costo total de las llamadas
     costoLlamadas = 0
+
+    prepago = 0
     
     '''----------------------------------------------------------------
     # Metodos
@@ -58,6 +60,7 @@ class LineaTelefonica:
         self.numeroMinutos += pMinutos
         # Suma el costo (costo por minuto: 35 pesos)
         self.costoLlamadas += pMinutos * 35
+        self.prepago - self.costoLlamadas
 
     """
         Agrega una llamada de larga distancia a la línea telefónica.
