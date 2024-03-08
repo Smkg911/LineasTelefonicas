@@ -1,116 +1,179 @@
-class LineaTelefonica:
+from LineaTelefonica import LineaTelefonica
+
+class Empresa:
+    
     '''----------------------------------------------------------------
     # atributos
     ----------------------------------------------------------------'''
     
-    # Numero de llamadas realizadas
-    numeroLlamadas = 0
-    
-    # Numero de minutos consumidos
-    numeroMinutos = 0
-    
-    # Costo total de las llamadas
-    costoLlamadas = 0
-
-    descuento = 0 
-
-    prepago = 0
-
-    '''----------------------------------------------------------------
-    # 1,2, 3, 4, 5, 6
-    ----------------------------------------------------------------'''
-
-    estrato = 0
+    # Línea telefónica número 1.
+    linea1 = 0
+    # Línea telefónica número 2.
+    linea2 = 0
+    # Línea telefónica número 3.
+    linea3 = 0
     
     '''----------------------------------------------------------------
     # Metodos
     ----------------------------------------------------------------'''
     
-    # Inicializar el número de llamadas, número de minutos y costo de llamadas en 0.
     def __init__(self):
-        self.numeroLlamadas = 0 
-        self.numeroMinutos = 0
-        self.costoLlamadas = 0
-        # TODO Parte2 PuntoA: Completar el método según la documentación dada.
+        self.linea1 = LineaTelefonica()
+        self.linea2 = LineaTelefonica()
+        self.linea3 = LineaTelefonica()
+        # TODO Parte3 PuntoA: Construir linea2 y linea3.
         
-    #Retorna el costo total de las llamadas realizadas.
-    def darCostoLlamadas(self):
-        return self.costoLlamadas
-        # TODO Parte2 PuntoB: Completar el método según la documentación dada.
-        
-    # Retorna el número de llamadas realizadas por esta línea.
-    def darNumeroLlamadas(self):
-        return self.numeroLlamadas
-        # TODO Parte2 PuntoC: Completar el método según la documentación dada.
-        
-    # Retorna el número de minutos consumidos.
-    def darNumeroMinutos(self):
-        return self.numeroMinutos
-        # TODO Parte2 PuntoD: Completar el método según la documentación dada.
+    # Retorna la l�nea 1.
+    def darLinea1(self):
+        return self.linea1
+        # TODO Parte3 PuntoB: Completar el m�todo seg�n la documentaci�n dada.
 
-    # Reinicia la línea telefónica, dejando todos sus valores en cero.
-    # post: El número de llamadas, número de minutos y costo de llamadas son 0.
+    # Retorna la l�nea 2.
+    def darLinea2(self):
+        return self.linea2
+        # // TODO Parte3 PuntoC: Completar el m�todo seg�n la documentaci�n dada.
+
+    # Retorna la l�nea 3.
+    def darLinea3(self):
+        return self.linea3
+        # // TODO Parte3 PuntoD: Completar el m�todo seg�n la documentaci�n dada.
+
+    '''
+	# Retorna el n�mero total de llamadas realizadas.
+	# @return Total de llamadas de las tres l�neas.
+	'''
+    def darTotalNumeroLlamadas(self):
+        return self.linea1.darNumeroLlamadas() + self.linea2.darNumeroLlamadas() + self.linea3.darNumeroLlamadas() 
+        # TODO Parte3 PuntoE: Completar el m�todo seg�n la documentaci�n dada.
+
+    '''
+	    # Retorna el total de minutos consumidos.
+	    # @return Total de minutos de las tres l�neas.
+	'''
+    def darTotalMinutos(self):
+        return self.linea1.darNumeroMinutos() + self.linea2.darNumeroMinutos() + self.linea3.darNumeroMinutos()
+        # TODO Parte3 PuntoF: Completar el m�todo seg�n la documentaci�n dada.
+
+    '''
+	    # Retorna el costo total de las llamadas realizadas.
+	    # @return Costo total de las tres l�neas.
+    '''
+    def darTotalCostoLlamadas(self):
+        return self.linea1.darCostoLlamadas() + self.linea2.darCostoLlamadas() + self.linea3.darCostoLlamadas()
+        # TODO Parte3 PuntoG: Completar el m�todo seg�n la documentaci�n dada.
+
+    '''
+        # Retorna el costo promedio de un minuto, seg�n los minutos consumidos. <br>
+	    # @return Costo promedio por minuto.
+    '''
+    def darCostoPromedioMinuto(self):
+        return self.darTotalCostoLlamadas() / self.darTotalMinutos()
+        # TODO Parte3 PuntoH: Completar el m�todo seg�n la documentaci�n dada.
+
+    '''
+        # Agrega una llamada local a la l�nea telef�nica 1 <br>
+        # <b>post: </b> Se agreg� la llamada a la l�nea 1.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+        '''
+    def agregarLlamadaLocalLinea1(self, pMinutos):
+        self.linea1.agregarLlamadaLocal(pMinutos)
+
+    '''
+        # Agrega una llamada local a la l�nea telef�nica 2. <br>
+        # <b>post: </b> Se agreg� la llamada a la l�nea 2.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+    '''
+    def agregarLlamadaLocalLinea2(self, pMinutos):
+        self.linea2.agregarLlamadaLocal(pMinutos)
+        # TODO Parte3 PuntoI: Completar el m�todo seg�n la documentaci�n dada.
+
+        '''
+        # Agrega una llamada local a la l�nea telef�nica 3. <br>
+        # <b>post: </b> Se agrega la llamada a la l�nea 3.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+        '''
+    def agregarLlamadaLocalLinea3(self, pMinutos):
+        self.linea3.agregarLlamadaLocal(pMinutos)
+        # TODO Parte3 PuntoJ: Completar el m�todo seg�n la documentaci�n dada.
+
+        '''
+        # Agrega una llamada de larga distancia a la l�nea telef�nica 1. <br>
+        # <b>post: </b> Se agrega la llamada a la l�nea 1.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+        '''
+    def agregarLlamadaLargaDistanciaLinea1(self, pMinutos):
+        self.linea1.agregarLlamadaLargaDistancia(pMinutos)
+
+    '''
+        # Agrega una llamada de larga distancia a la l�nea telef�nica 2. <br>
+        # <b>post: </b> Se agrega la llamada a la l�nea 2.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+    '''
+    def agregarLlamadaLargaDistanciaLinea2(self, pMinutos):
+        self.linea2.agregarLlamadaLargaDistancia(pMinutos)
+        # TODO Parte3 PuntoK: Completar el m�todo seg�n la documentaci�n dada.
+    
+        '''
+        # Agrega una llamada de larga distancia a la l�nea telef�nica 3. <br>
+        # <b>post: </b> Se agrega la llamada a la l�nea 3.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+        '''
+    def agregarLlamadaLargaDistanciaLinea3(self, pMinutos):
+        self.linea3.agregarLlamadaLargaDistancia(pMinutos)
+        # TODO Parte3 PuntoL: Completar el m�todo seg�n la documentaci�n dada.
+
+        '''
+        # Agrega una llamada a celular a la l�nea telef�nica 1. <br>
+        # <b>post: </b> Se agrega la llamada a la l�nea 1.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+        '''
+    def agregarLlamadaCelularLinea1(self, pMinutos):
+        self.linea1.agregarLlamadaCelular(pMinutos)
+
+    '''
+        # Agrega una llamada a celular a la l�nea telef�nica 2. <br>
+        # <b>post: </b> Se agrega la llamada a la l�nea 2.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+    '''
+    def agregarLlamadaCelularLinea2(self, pMinutos):
+        self.linea2.agregarLlamadaCelular(pMinutos)
+        # TODO Parte3 PuntoM: Completar el m�todo seg�n la documentaci�n dada.
+    
+        '''
+        # Agrega una llamada a celular a la l�nea telef�nica 3. <br>
+        # <b>post: </b> Se agrega la llamada a la l�nea 3.
+        # @param pMinutos N�mero de minutos de la llamada. pMinutos > 0.
+        '''
+    def agregarLlamadaCelularLinea3(self, pMinutos):
+        self.linea3.agregarLlamadaCelular(pMinutos)
+        #TODO Parte3 PuntoN: Completar el m�todo seg�n la documentaci�n dada.
+    
+        '''
+        # Reinicia todas las l�neas telef�nicas.
+        # <b>post: </b> Se reinici� la llamada a la l�nea 1, 2 y 3. 
+        '''
     def reiniciar(self):
-        self.numeroLlamadas = 0
-        self.numeroMinutos = 0
-        self.costoLlamadas = 0
-        
-        # TODO Parte2 PuntoE: Completar el método según la documentación dada.
+        self.linea1.reiniciar()
+        self.linea2.reiniciar()
+        self.linea3.reiniciar()
+        # // TODO Parte3 PuntoB: Completar el m�todo para reiniciar las lineas 2 y 3.
 
-    # Agrega una llamada local a la línea telefónica
-    # post: Se incrementá en 1 numeroDeLlamadas, se incremento numeroDeMinutos en minutos, costoLlamadas aumentá en ( minutos * 35 ).
-    # :param pMinutos Número de minutos de la llamada. pMinutos >0.
-    def agregarLlamadaLocal(self, pMinutos):
-        
-        # Una llamada más
-        self.numeroLlamadas += 1
-        # Suma los minutos consumidos
-        self.numeroMinutos += pMinutos
-        # Suma el costo (costo por minuto: 35 pesos)
-        self.costoLlamadas += pMinutos * 35
+    def DescuentoTodos(self):
+        Descuento1=(self.linea1.costoLlamadas * self.linea1.descuento) / 100
+        Descuento2=(self.linea2.costoLlamadas * self.linea2.descuento) / 100
+        Descuento3=(self.linea3.costoLlamadas * self.linea3.descuento) / 100
+        return Descuento1 + Descuento2 + Descuento3
 
-        self.prepago - self.costoLlamadas
-
-
-    """
-        Agrega una llamada de larga distancia a la línea telefónica.
-        
-        post: Se incrementá en 1 numeroDeLlamadas, se incremento numeroDeMinutos en minutos, costoLlamadas aumentá en ( minutos * 380 )
-        
-        :param pMinutos: Número de minutos de la llamada. pMinutos >0.
-        """
-    def agregarLlamadaLargaDistancia(self, pMinutos):
-        
-        self.numeroLlamadas += 1
-        self.numeroMinutos += pMinutos
-        self.costoLlamadas += pMinutos * 380
-        # TODO Parte2 PuntoF: Completar el método según la documentación dada.
-
-    '''
-        Agrega una llamada a celular a la lÍnea telefónica
-        post: Se incrementá en 1 numeroDeLlamadas, se incremento numeroDeMinutos en minutos, costoLlamadas aumentá en ( minutos * 999 )
-        :param pMinutos Número de minutos de la llamada. pMinutos >0.
-    '''
-    def agregarLlamadaCelular(self, pMinutos):
-        
-        self.numeroLlamadas += 1
-        self.numeroMinutos += pMinutos
-        self.costoLlamadas += pMinutos * 999
-        # TODO Parte2 PuntoG: Completar el método según la documentación dada.
-       
-    def ConsultarDescuento(self):
-        return self.descuento
+    '''----------------------------------------------------------------
+    # Puntos de Extensi�n
+    ----------------------------------------------------------------'''
     
-    def AplicarDescuento(self): 
-        return (self.costoLlamadas * self.descuento) / 100 
-    
-    def darSaldo(self):
-        return self.prepago
-    
-    def Recarga (self, Recarga):
-        nPrepago = self.prepago + Recarga
-        self.prepago = nPrepago 
-        
-    def MotivarCliente(self):
-        if self.numeroMinutos == 30:
-            self.prepago + 1000
+    # M�todo para la extensi�n 1.
+    # @return Respuesta 1.
+    def metodo1(self):
+        return "Respuesta 1"
+
+    # M�todo para la extensi�n 2.
+    # @return Respuesta 2.
+    def metodo2(self):
+        return "Respuesta 2"
