@@ -197,11 +197,11 @@ class Empresa:
     # @return Respuesta 1.
     def metodo1(self):
         # return "Total= " + self.DarTotalMinutosPorEstrato
-        return "el total de minutos a celular es " + self.linea1.darMinutosCelular, self.linea2.darMinutosCelular, self.linea3.darMinutosCelular
+        return "el total de minutos a celular es " + self.linea1.darMinutosCelular + self.linea2.darMinutosCelular + self.linea3.darMinutosCelular
     
 
     # M�todo para la extensi�n 2.
     # @return Respuesta 2.
     def metodo2(self):
-        return "Respuesta 2"
+        return "Valor del bono es " + self.linea1.Bono + self.linea2.Bono + self.linea3.Bono 
 

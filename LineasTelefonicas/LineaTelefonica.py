@@ -146,5 +146,8 @@ class LineaTelefonica:
     
     def darMinutosCelular (self):
         return self.numeroMinutosCelular
+    
+    def Bono(self):
+        self.costoLlamadasCelular * 0.02
 
     # TODO Parte2 PuntoG: Completar el método según la documentación dada
