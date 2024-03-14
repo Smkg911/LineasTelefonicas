@@ -13,9 +13,18 @@ class Empresa:
     # Línea telefónica número 3.
     linea3 = 0
     
+    
+    '''----------------------------------------------------------------
+    # 1, 2, 3, 4, 5, 6
+    ----------------------------------------------------------------'''
+
+    estrato = 0
+
     '''----------------------------------------------------------------
     # Metodos
     ----------------------------------------------------------------'''
+    
+    
     
     def __init__(self):
         self.linea1 = LineaTelefonica()
@@ -47,16 +56,16 @@ class Empresa:
         # TODO Parte3 PuntoE: Completar el m�todo seg�n la documentaci�n dada.
 
     '''
-	    # Retorna el total de minutos consumidos.
-	    # @return Total de minutos de las tres l�neas.
+	# Retorna el total de minutos consumidos.
+	# @return Total de minutos de las tres l�neas.
 	'''
     def darTotalMinutos(self):
         return self.linea1.darNumeroMinutos() + self.linea2.darNumeroMinutos() + self.linea3.darNumeroMinutos()
         # TODO Parte3 PuntoF: Completar el m�todo seg�n la documentaci�n dada.
 
     '''
-	    # Retorna el costo total de las llamadas realizadas.
-	    # @return Costo total de las tres l�neas.
+	# Retorna el costo total de las llamadas realizadas.
+	# @return Costo total de las tres l�neas.
     '''
     def darTotalCostoLlamadas(self):
         return self.linea1.darCostoLlamadas() + self.linea2.darCostoLlamadas() + self.linea3.darCostoLlamadas()
@@ -64,7 +73,7 @@ class Empresa:
 
     '''
         # Retorna el costo promedio de un minuto, seg�n los minutos consumidos. <br>
-	    # @return Costo promedio por minuto.
+	# @return Costo promedio por minuto.
     '''
     def darCostoPromedioMinuto(self):
         return self.darTotalCostoLlamadas() / self.darTotalMinutos()
@@ -163,6 +172,17 @@ class Empresa:
         Descuento2=(self.linea2.costoLlamadas * self.linea2.descuento) / 100
         Descuento3=(self.linea3.costoLlamadas * self.linea3.descuento) / 100
         return Descuento1 + Descuento2 + Descuento3
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     '''----------------------------------------------------------------
     # Puntos de Extensi�n

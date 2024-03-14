@@ -14,6 +14,8 @@ class LineaTelefonica:
 
     prepago = 0
     
+    descuento = 0
+    
     '''----------------------------------------------------------------
     # Metodos
     ----------------------------------------------------------------'''
@@ -86,5 +88,23 @@ class LineaTelefonica:
         self.numeroLlamadas += 1
         self.numeroMinutos += pMinutos
         self.costoLlamadas += pMinutos * 999
+        
+    def ConsultarDescuento(self):
+        return self.descuento
+    
+    def AplicarDescuento(self): 
+        return (self.costoLlamadas * self.descuento) / 100 
+    
+    def darSaldo(self):
+        return self.prepago
+    
+    def Recarga (self, Recarga):
+        nSaldo = self.prepago + Recarga
+        self.prepago = nSaldo
+
+
+
+
+
         # TODO Parte2 PuntoG: Completar el método según la documentación dada.
        
