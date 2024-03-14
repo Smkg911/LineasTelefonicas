@@ -16,6 +16,20 @@ class LineaTelefonica:
     
     descuento = 0
     
+    costoLlamadasDolares = 0 
+    
+    numeroSegundos = 0 
+    
+    costoLlamadasCelular = 0 
+    
+    numeroMinutosCelular = 0
+    
+    '''----------------------------------------------------------------
+    # 1, 2, 3, 4, 5, 6
+    ----------------------------------------------------------------'''
+
+    estrato = 0
+    
     '''----------------------------------------------------------------
     # Metodos
     ----------------------------------------------------------------'''
@@ -25,6 +39,12 @@ class LineaTelefonica:
         self.numeroLlamadas = 0 
         self.numeroMinutos = 0
         self.costoLlamadas = 0
+        self.prepago = 0
+        self.costoLlamadasDolares = 0
+        self.numeroSegundos = 0
+        self.numeroMinutosCelular = 0
+        self.costoLlamadasCelular = 0
+        
         # TODO Parte2 PuntoA: Completar el método según la documentación dada.
         
     #Retorna el costo total de las llamadas realizadas.
@@ -48,6 +68,8 @@ class LineaTelefonica:
         self.numeroLlamadas = 0
         self.numeroMinutos = 0
         self.costoLlamadas = 0
+        self.costoLlamadasDolares = 0
+        self.numeroSegundos = 0
         
         # TODO Parte2 PuntoE: Completar el método según la documentación dada.
 
@@ -86,8 +108,8 @@ class LineaTelefonica:
     def agregarLlamadaCelular(self, pMinutos):
         
         self.numeroLlamadas += 1
-        self.numeroMinutos += pMinutos
-        self.costoLlamadas += pMinutos * 999
+        self.numeroMinutosCelular += pMinutos
+        self.costoLlamadasCelular += pMinutos * 999
         
     def ConsultarDescuento(self):
         return self.descuento
@@ -101,10 +123,28 @@ class LineaTelefonica:
     def Recarga (self, Recarga):
         nSaldo = self.prepago + Recarga
         self.prepago = nSaldo
+        
+    def convertirPesosADolares (self): 
+        dolares = self.costoLlamadas / 3100
+        self.costoLlamadasDolares = dolares 
+        
+    def convertirMinutosASegundos(self):
+        segundos = self.numeroMinutos * 60
+        self.numeroSegundos = segundos 
+    
+    def DarEstrato(self):
+        return self.estrato 
+    
+    def DefinirEstrato(self, pEstrato): 
+        self.estrato = pEstrato
+        
+    def DarMinutoPorEstrato(self): 
+        return self.numeroMinutos * self.estrato
+    
+    def DarCostoCelula (self):
+        return self.costoLlamadasCelular
+    
+    def darMinutosCelular (self):
+        return self.numeroMinutosCelular
 
-
-
-
-
-        # TODO Parte2 PuntoG: Completar el método según la documentación dada.
-       
+    # TODO Parte2 PuntoG: Completar el método según la documentación dada
