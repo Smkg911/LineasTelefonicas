@@ -148,6 +148,12 @@ class LineaTelefonica:
         return self.numeroMinutosCelular
     
     def Bono(self):
-        self.costoLlamadasCelular * 0.02
+        bono = self.costoLlamadasCelular * 0.02
+        return bono 
+
+    def CalcularPromedio(self):
+        promedio = self.numeroMinutos / self.numeroLlamadas
+        return promedio
 
     # TODO Parte2 PuntoG: Completar el método según la documentación dada
+
