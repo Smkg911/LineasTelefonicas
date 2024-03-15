@@ -13,6 +13,7 @@ class Empresa:
     # Línea telefónica número 3.
     linea3 = 0
     
+    descuento = 0
     
     '''----------------------------------------------------------------
     # 1, 2, 3, 4, 5, 6
@@ -33,6 +34,7 @@ class Empresa:
         self.linea1 = LineaTelefonica.DefinirEstrato(2)
         self.linea2 = LineaTelefonica.DefinirEstrato(5)
         self.linea3 = LineaTelefonica.DefinirEstrato(6)
+        self.descuento = 0
         # TODO Parte3 PuntoA: Construir linea2 y linea3.
         
     # Retorna la l�nea 1.
@@ -180,15 +182,38 @@ class Empresa:
     def DarTotalMinutosPorEstrato(self):
         return self.linea1.DarMinutoPorEstrato() + self.linea2.DarMinutoPorEstrato() + self.linea3.DarMinutoPorEstrato()
         
-    
-    
-    
-    
-    
-    
-    
-    
 
+    def DarTotalCostoLlamadasDescuento2(self):
+        descuentoLInea2 = self.linea2.costoLlamadas * 0.1
+        return descuentoLInea2
+    
+    def DarTotalCostoLlamadasDescuento3(self):
+        descuentoLInea3 = self.linea3.costoLlamadas * 0.05
+        return descuentoLInea3
+    
+    def descuentoLineas(self): 
+        if self.linea2.costoLlamadas() > 0: 
+            return self.DarTotalCostoLlamadasDescuento2
+        elif self.linea3.costoLlamadas() > 0:
+            return self.DarTotalCostoLlamadasDescuento3
+        else: 
+            return self.linea1.darCostoLlamadas()
+        
+    def ModificarDescuento(self):
+        mDescuento = self.descuentoLineas()
+        self.descuento = mDescuento
+
+    # def DarTotalCostoLlamadasDescuento(self):
+    #     descuentoLInea2 = self.linea2.costoLlamadas * 0.1
+    #     if descuentoLInea2 > 0: 
+    #         return descuentoLInea2
+    #     elif: 
+    #         descuentoLInea3 = self.linea3.costoLlamadas * 0.05
+    #         return descuentoLInea3
+    #     else:
+    #          return self.linea1.costoLlamadas 
+    
+    
     '''----------------------------------------------------------------
     # Puntos de Extensi�n
     ----------------------------------------------------------------'''
@@ -197,11 +222,12 @@ class Empresa:
     # @return Respuesta 1.
     def metodo1(self):
         # return "Total= " + self.DarTotalMinutosPorEstrato
-        return "el total de minutos a celular es " + self.linea1.darMinutosCelular + self.linea2.darMinutosCelular + self.linea3.darMinutosCelular
+        # return "el total de minutos a celular es " + self.linea1.darMinutosCelular + self.linea2.darMinutosCelular + self.linea3.darMinutosCelular
+        return f"{self.linea1.CalcularPromedio}, {self.linea2.CalcularPromedio}, {self.linea3.CalcularPromedio}"
     
 
     # M�todo para la extensi�n 2.
     # @return Respuesta 2.
+        # return f"Valor del bono es   {self.linea1.Bono}  {self.linea2.Bono},  {self.linea3.Bono} "
     def metodo2(self):
-        return "Valor del bono es " + self.linea1.Bono + self.linea2.Bono + self.linea3.Bono 
-
+        return f"su ahorro es de: {self.descuento}" 
